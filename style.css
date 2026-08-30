@@ -1,0 +1,291 @@
+/* Seção: Variáveis Globais */
+:root {
+  --bg-dark: #020617;
+  --bg-secondary: #071427;
+  --primary: #00BFFF;
+  --primary-light: #5EE6FF;
+  --primary-dark: #0A84FF;
+  --text: #EAF6FF;
+  --text-soft: #A8C7E8;
+  --border: rgba(94, 230, 255, 0.25);
+}
+
+/* Seção: Reset e Estilos Globais */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Raleway', sans-serif;
+  background:
+    radial-gradient(circle at top, rgba(0,191,255,0.12), transparent 35%),
+    linear-gradient(180deg, #020617 0%, #071427 100%);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+h1, h2 {
+  font-family: 'Orbitron', sans-serif;
+}
+
+/* Seção: Efeito de Partículas ao Fundo */
+.particles {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background-image: radial-gradient(circle, rgba(94,230,255,0.15) 1px, transparent 1px);
+  background-size: 40px 40px;
+  animation: particlesMove 20s linear infinite;
+}
+
+@keyframes particlesMove {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-40px);
+  }
+}
+
+/* Seção: Cabeçalho e Título */
+header {
+  background:
+    linear-gradient(135deg, rgba(0,191,255,0.15), transparent),
+    linear-gradient(180deg, #020617 0%, #071427 100%);
+  border-bottom: 1px solid rgba(94,230,255,0.25);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 40px rgba(0,191,255,0.12);
+}
+
+header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top, rgba(94,230,255,0.12), transparent 40%);
+  pointer-events: none;
+}
+
+.store-title {
+  letter-spacing: 0.12em;
+  font-weight: 900;
+  background: linear-gradient(180deg, #ffffff 0%, #8BE9FF 40%, #00BFFF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 18px rgba(0,191,255,0.35), 0 0 32px rgba(0,191,255,0.25);
+}
+
+.subtitle {
+  color: var(--primary-light);
+  letter-spacing: 0.28em;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+}
+
+.logo-glow {
+  filter: drop-shadow(0 0 10px rgba(0,191,255,0.5)) drop-shadow(0 0 25px rgba(0,191,255,0.25));
+}
+
+/* Seção: Badge de Status da Loja */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 1px solid;
+  transition: 0.3s ease;
+  backdrop-filter: blur(8px);
+}
+
+.status-open {
+  background: rgba(34,197,94,0.12);
+  border-color: rgba(34,197,94,0.4);
+  color: #4ade80;
+  box-shadow: 0 0 18px rgba(34,197,94,0.25);
+}
+
+.status-closed {
+  background: rgba(239,68,68,0.12);
+  border-color: rgba(239,68,68,0.4);
+  color: #f87171;
+  box-shadow: 0 0 18px rgba(239,68,68,0.15);
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.dot-open {
+  background: #4ade80;
+  box-shadow: 0 0 8px #4ade80;
+  animation: pulse-green 1.8s infinite;
+}
+
+.dot-closed {
+  background: #f87171;
+}
+
+@keyframes pulse-green {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 8px #4ade80;
+  }
+  50% {
+    opacity: 0.5;
+    box-shadow: 0 0 2px #4ade80;
+  }
+}
+
+/* Seção: Componentes de Cards e Listas */
+.card {
+  background: rgba(10, 20, 40, 0.92);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.03),
+    0 8px 30px rgba(0,0,0,0.45),
+    0 0 24px rgba(0,191,255,0.08);
+  backdrop-filter: blur(8px);
+  transition: 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(94,230,255,0.55);
+  box-shadow:
+    0 12px 40px rgba(0,0,0,0.55),
+    0 0 30px rgba(0,191,255,0.18);
+}
+
+.card-title {
+  color: var(--primary-light);
+  border-bottom: 1px solid rgba(94,230,255,0.18);
+  padding-bottom: 0.8rem;
+  margin-bottom: 1rem;
+  letter-spacing: 0.06em;
+  font-size: 1.05rem;
+  text-shadow: 0 0 10px rgba(0,191,255,0.25);
+}
+
+.event-item {
+  padding: 0.75rem 0;
+  border-bottom: 1px dashed rgba(94,230,255,0.18);
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  color: var(--text-soft);
+}
+
+.event-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+/* Seção: Carrossel / Slideshow */
+.slideshow-wrapper {
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 18px;
+  background: rgba(2,6,23,0.6);
+  border: 1px solid rgba(94,230,255,0.15);
+}
+
+.slideshow-wrapper img {
+  width: 100%;
+  height: auto;
+  max-height: 500px;
+  object-fit: contain;
+  transition: opacity 0.4s ease;
+  border-radius: 12px;
+}
+
+.slide-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(2, 6, 23, 0.6);
+  color: var(--primary-light);
+  border: 1px solid var(--border);
+  font-size: 1.5rem;
+  padding: 0.5rem 0.9rem;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  z-index: 10;
+  backdrop-filter: blur(4px);
+}
+
+.slide-btn:hover {
+  background: rgba(0, 191, 255, 0.25);
+  border-color: var(--primary-light);
+  box-shadow: 0 0 15px rgba(0, 191, 255, 0.5);
+  color: #ffffff;
+}
+
+.left-btn {
+  left: 15px;
+}
+
+.right-btn {
+  right: 15px;
+}
+
+/* Seção: Botões e Elementos Interativos */
+.map-btn {
+  background: linear-gradient(135deg, #00BFFF, #0A84FF);
+  color: white;
+  padding: 0.7rem 1.5rem;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  display: inline-block;
+  transition: 0.25s ease;
+  box-shadow: 0 0 18px rgba(0,191,255,0.35);
+}
+
+.map-btn:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 0 28px rgba(0,191,255,0.5);
+}
+
+.social-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.25s ease;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(10,20,40,0.9);
+  box-shadow: 0 0 18px rgba(0,191,255,0.18);
+}
+
+.social-btn:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 0 28px rgba(0,191,255,0.35);
+}
+
+/* Seção: Rodapé */
+footer {
+  background: rgba(2,6,23,0.95);
+  border-top: 1px solid rgba(94,230,255,0.15);
+}
